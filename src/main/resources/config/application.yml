@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: Healthcare
+  profiles:
+    active: @activeProfile@
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+  datasource:
+    name: healthcare
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/healthcare
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    user: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/healthcare
+    change-log: classpath:liquibase/master.xml
+  resources:
+    add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+  http:
+    encoding:
+      force: true
+application:
+  jwt:
+    expiration: 30
+    remember-me-expiration: 90

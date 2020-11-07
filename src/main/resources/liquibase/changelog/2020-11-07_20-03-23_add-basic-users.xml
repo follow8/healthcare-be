@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet id="88e25f5f-717a-4133-bfde-8554ebf7ee82-add-basic-users" author="follow8">
+        <insert tableName="authority" schemaName="public">
+            <column name="name" type="VARCHAR(255)">ADMIN</column>
+        </insert>
+        <insert tableName="authority" schemaName="public">
+            <column name="name" type="VARCHAR(255)">USER</column>
+        </insert>
+        <insert tableName="account" schemaName="public">
+            <column name="username" type="VARCHAR(255)">user</column>
+            <column name="password" type="VARCHAR(255)">$2a$10$xAj9gkIFbupofBhq31WqnOY5cjuu1.iLCdC/UQuU5yYEAWHG3J6ee
+            </column> <!-- *Password999* -->
+            <column name="last_name" type="VARCHAR(255l">user_last_name</column>
+            <column name="first_name" type="VARCHAR(255)">user_first_name</column>
+            <column name="email" type="VARCHAR(255)">user@email.com</column>
+            <column name="active" type="BOOLEAN">true</column>
+        </insert>
+        <insert tableName="account" schemaName="public">
+            <column name="username" type="VARCHAR(255)">admin</column>
+            <column name="password" type="VARCHAR(255)">$2a$10$HXetAHKsWBuIixLQAPNS7OcNL.7Icb0pOUJQjWf4wuyph5ml8V3jO
+            </column> <!-- *Password999* -->
+            <column name="last_name" type="VARCHAR(255)">admin_last_name</column>
+            <column name="first_name" type="VARCHAR(255)">admin_first_name</column>
+            <column name="email" type="VARCHAR(255)">admin@email.com</column>
+            <column name="active" type="BOOLEAN">true</column>
+        </insert>
+        <insert tableName="account_authority" schemaName="public">
+            <column name="account_id" valueComputed="(select id from account where username = 'user')"/>
+            <column name="authority_name">USER</column>
+        </insert>
+        <insert tableName="account_authority" schemaName="public">
+            <column name="account_id" valueComputed="(select id from account where username = 'admin')"/>
+            <column name="authority_name">ADMIN</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

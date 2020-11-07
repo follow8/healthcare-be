@@ -1,0 +1,226 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="follow8 (generated)" id="1604779180391-1">
+        <createTable tableName="account">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="accountPK"/>
+            </column>
+            <column name="active" type="BOOLEAN"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="img_path" type="VARCHAR(255)"/>
+            <column name="insurance_number" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-2">
+        <createTable tableName="account_authority">
+            <column name="account_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-3">
+        <createTable tableName="analysis">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="analysisPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-4">
+        <createTable tableName="appointment">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="appointmentPK"/>
+            </column>
+            <column name="commentary" type="VARCHAR(255)"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="patient_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-5">
+        <createTable tableName="authority">
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="authorityPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-6">
+        <createTable tableName="bank_account">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="bank_accountPK"/>
+            </column>
+            <column name="balance" type="numeric(19, 2)"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-7">
+        <createTable tableName="booking">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="bookingPK"/>
+            </column>
+            <column name="booking_type" type="INTEGER"/>
+            <column name="duration" type="INTEGER"/>
+            <column name="start_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="appointment_id" type="BIGINT"/>
+            <column name="schedule_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-8">
+        <createTable tableName="cabinet">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="cabinetPK"/>
+            </column>
+            <column name="floor_number" type="INTEGER"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-9">
+        <createTable tableName="cabinet_employee">
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="cabinet_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-10">
+        <createTable tableName="department">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="departmentPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="owner_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-11">
+        <createTable tableName="diagnosis">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="diagnosisPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-12">
+        <createTable tableName="employee">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employeePK"/>
+            </column>
+            <column name="blood_type" type="VARCHAR(255)"/>
+            <column name="rh_factor" type="BOOLEAN"/>
+            <column name="degree" type="VARCHAR(255)"/>
+            <column name="ended_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="salary" type="INTEGER"/>
+            <column name="started_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-13">
+        <createTable tableName="employee_info">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_infoPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="parent_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-14">
+        <createTable tableName="patient">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="patientPK"/>
+            </column>
+            <column name="blood_type" type="VARCHAR(255)"/>
+            <column name="rh_factor" type="BOOLEAN"/>
+            <column name="info_path" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-15">
+        <createTable tableName="schedule">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="schedulePK"/>
+            </column>
+            <column name="commentary" type="VARCHAR(255)"/>
+            <column name="employee_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-16">
+        <addUniqueConstraint columnNames="name" constraintName="UC_DIAGNOSISNAME_COL" tableName="diagnosis"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-17">
+        <addUniqueConstraint columnNames="username, email" constraintName="UKigmh1otf9m20dj0fblcfismwt" tableName="account"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-18">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="account_authority" constraintName="fk_account_authority_to_authority_name" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="authority" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-19">
+        <addForeignKeyConstraint baseColumnNames="account_id" baseTableName="account_authority" constraintName="fk_account_authority_to_user" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="account" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-20">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="appointment" constraintName="fk_appointment_to_employee" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-21">
+        <addForeignKeyConstraint baseColumnNames="patient_id" baseTableName="appointment" constraintName="fk_appointment_to_patient" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="patient" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-22">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="bank_account" constraintName="fk_bank_account_to_account" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="account" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-23">
+        <addForeignKeyConstraint baseColumnNames="appointment_id" baseTableName="booking" constraintName="fk_booking_to_appointment" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="appointment" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-24">
+        <addForeignKeyConstraint baseColumnNames="schedule_id" baseTableName="booking" constraintName="fk_booking_to_schedule" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="schedule" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-25">
+        <addForeignKeyConstraint baseColumnNames="cabinet_id" baseTableName="cabinet_employee" constraintName="fk_cabinet_employee_to_cabinet" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="cabinet" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-26">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="cabinet_employee" constraintName="fk_cabinet_employee_to_employee" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-27">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="department" constraintName="fk_department_to_owner" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="account" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-28">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="department" constraintName="fk_department_to_parent" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="department" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-29">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_info" constraintName="fk_employee_info_to_employee" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-30">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="employee_info" constraintName="fk_employee_info_to_parent" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee_info" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-31">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="employee" constraintName="fk_employee_to_account" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="account" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-32">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="patient" constraintName="fk_patient_to_account" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="account" validate="true"/>
+    </changeSet>
+    <changeSet author="follow8 (generated)" id="1604779180391-33">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="schedule" constraintName="fk_schedule_to_employee" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
